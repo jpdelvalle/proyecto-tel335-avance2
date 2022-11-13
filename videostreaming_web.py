@@ -6,7 +6,7 @@ import cv2
 from camera_feed import generate
 
 cap = cv2.VideoCapture(0)
-sentence = ['']
+sentence = []
 
 app = Flask(__name__)
 
@@ -14,9 +14,9 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route('/_stuff',methods=['GET'])
-def stuff():
-    return jsonify(sentence_array=sentence)
+@app.route('/data')
+def data():
+    return sentence
 
 @app.route("/video_feed")
 def video_feed():

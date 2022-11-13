@@ -1,7 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+<script type="text/javascript">
+    function updater() {
+        $.get('/data', function (data) {
+            let phrase = '';
+            data.forEach(element => {
+                phrase = phrase + " " + element;
+            });
+            $('#result').html(phrase);  // update page with new data
+        });
+    };
+    setInterval(updater, 1000);  // run `updater()` every 1000ms (1s)
+</script>
 
 <head>
     <meta charset="UTF-8">
@@ -20,25 +32,12 @@
         }
     </style>
 </head>
-<script type="text/javascript">
-    var intervalID = setInterval(update_values, 1000);
 
-    function update_values() {
-        $.getJSON($SCRIPT_ROOT + '/_stuff',
-            function (data) {
-                $('#result').text(data.result);
-                console.log(data)
-            });
-    };
-</script>
 
-<body class="container" onload="update_values();">
+<body class="container" onload="updater();">
     <h1>Video en Directo</h1>
     <img src="{{ url_for('video_feed') }}">
-    <h3 id="result">?</h3>
-    <script>
-        document.getElementById("result").innerHTML;
-    </script>
+    <h3 id="result"></h3>
 </body>
 
 </html>

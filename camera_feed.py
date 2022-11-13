@@ -116,8 +116,8 @@ def generate(cap,sentence):
                     else:
                         sentence.append(actions[np.argmax(res)])
 
-                if len(sentence) > 5:
-                    sentence = sentence[-5:]
+                while len(sentence) > 5:
+                    sentence.pop(0)
 
                 image = prob_viz(res, actions, image, colors)
 
