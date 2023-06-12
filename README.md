@@ -8,7 +8,7 @@ Proyecto para el ramo de Procesamiento Digital de Imágenes (ELO-328), semestre 
 ## Instalación
 En primer lugar se debe clonar el proyecto mediante el siguiente comando:
 ```
-git clone https://gitlab.com/grupo-g-elo329/proyecto-pdi.git
+git clone https://github.com/jpdelvalle/proyecto-tel335-avance2
 cd proyecto-pdi
 ```
 
