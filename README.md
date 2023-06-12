@@ -1,4 +1,4 @@
-# Proyecto PDI
+# Proyecto TEL335
 
 ## Detección Lengua de Señas
 
